@@ -39,6 +39,27 @@ fid:
   followerOnly:
     enabled: false
     # Enable this with caution
+
+    labels: {}
+      # app: fid-follower
+      # role: follower
+
+    podLabels: {}
+      # extra pod labels
+
+    service:
+      enabled: false
+      type: LoadBalancer
+      port: 7070
+
+      labels: {}
+        # service: follower
+
+      annotations: {}
+        # service.beta.kubernetes.io/aws-load-balancer-type: "nlb"
+
+      selector: {}
+        # app: fid-follower
     autoscaling:
       enabled: false
     minReplicas: 1
