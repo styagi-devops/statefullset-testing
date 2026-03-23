@@ -37,29 +37,29 @@ fid:
   ## Deploy a readonly/follower-only sts, that joins current FID cluster
   ##
   followerOnly:
-    enabled: false
+    enabled: true
     # Enable this with caution
 
     labels: {}
-      # app: fid-follower
-      # role: follower
+      app: fid-follower
+      role: follower
 
     podLabels: {}
       # extra pod labels
 
     service:
-      enabled: false
+      enabled: true
       type: LoadBalancer
       port: 7070
 
       labels: {}
-        # service: follower
+        service: follower
 
       annotations: {}
         # service.beta.kubernetes.io/aws-load-balancer-type: "nlb"
 
       selector: {}
-        # app: fid-follower
+        app: fid-follower
     autoscaling:
       enabled: false
     minReplicas: 1
